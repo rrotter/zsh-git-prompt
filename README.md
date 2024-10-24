@@ -1,4 +1,12 @@
-<h1><img src="screenshot.svg" width="800" /></h1>
+Fork of [woefe/git-prompt.zsh](https://github.com/woefe/git-prompt.zsh). Compatibility with upstream is intentionally broken. Do not file bugs with upstream repo.
+
+### Major differences from upstream
+- git >= 2.14.6 required, will crash on older versions due to lack of support for `git status --show-stash` flag
+- git >= 2.35.0 required for full functionality, older versions will silently fail to show stash entries
+
+The following is a lightly edited version of the original upstream readme. It will be removed or heavily edited in the future.
+
+---
 
 A fast, customizable, pure-shell, asynchronous Git prompt for Zsh.
 It is heavily inspired by Olivier Verdier's [zsh-git-prompt](https://github.com/olivierverdier/zsh-git-prompt) and very similar to the "Informative VCS" prompt of fish shell.
@@ -38,40 +46,8 @@ Then source it in your `.zshrc`. For example:
 
 ```bash
 mkdir -p ~/.zsh
-git clone --depth=1 https://github.com/woefe/git-prompt.zsh ~/.zsh/git-prompt.zsh
+git clone https://github.com/rrotter/zsh-git-prompt ~/.zsh/zsh-git-prompt
 echo "source ~/.zsh/git-prompt.zsh/git-prompt.zsh" >> .zshrc
-
-# Optional: install an example configuration
-echo "source ~/.zsh/git-prompt.zsh/examples/pure.zsh" >> .zshrc
-```
-
-### [Zplug](https://github.com/zplug/zplug)
-Either install the default prompt (see [Examples](#examples) section below) with
-```
-# Installs the "default" example
-zplug "woefe/git-prompt.zsh"
-```
-or choose an example prompt with
-```
-# Installs the "multiline" example
-zplug "woefe/git-prompt.zsh", use:"{git-prompt.zsh,examples/multiline.zsh}"
-```
-
-### [Zplugin](https://github.com/zdharma/zplugin)
-```
-zplugin ice atload'!_zsh_git_prompt_precmd_hook' lucid
-zplugin load woefe/git-prompt.zsh
-```
-Note that this method does not work if you want to disable the asynchronous rendering.
-
-### Arch Linux
-Install [git-prompt.zsh](https://aur.archlinux.org/packages/git-prompt.zsh/) or [git-prompt.zsh-git](https://aur.archlinux.org/packages/git-prompt.zsh-git/) from the AUR.
-Maintained by [Felixoid](https://github.com/Felixoid).
-
-### FreeBSD
-Install the [git-prompt.zsh](https://www.freshports.org/shells/git-prompt.zsh/) package with
-```
-pkg install git-prompt.zsh
 ```
 
 ## Customization
