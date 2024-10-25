@@ -312,7 +312,8 @@ function _zsh_git_prompt_async_request() {
 
     # There's a weird bug here where ^C stops working unless we force a fork
     # See https://github.com/zsh-users/zsh-autosuggestions/issues/364
-    command true
+    autoload -Uz is-at-least
+    is-at-least 5.8 || command true
 
     # Read the pid from the child process
     read _ZSH_GIT_PROMPT_ASYNC_PID <&$_ZSH_GIT_PROMPT_ASYNC_FD
